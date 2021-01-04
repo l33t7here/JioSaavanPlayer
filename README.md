@@ -9,9 +9,9 @@ This WebApp is instantly fast and uses websockets for communications:
 
 >Blazing Fast With Great Efficiency
 
-Front-End is open-sourced and is Beautifully Modified By https://github.com/Ankush9120
+Front-End is open-sourced and is Beautifully Modified By https://github.com/Ankush9120. I really appreciate his work :D.
 
 A Star Would Be Appreciated :D :D :D :D 
 
 
-Currently Running On (leethere.me)
+Currently Running On (http://leethere.me)
