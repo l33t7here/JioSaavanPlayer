@@ -1,6 +1,8 @@
 # JioSaavanPlayer
 Node-JS (Websockets) + Vue-Js 
 
+##Currently Running On (http://leethere.me)
+
 
 This WebApp is instantly fast and uses websockets for communications:
 >It Also stores songs so you can easily go to previous and next tracks
@@ -13,5 +15,7 @@ Front-End is open-sourced and is Beautifully Modified By https://github.com/Anku
 
 A Star Would Be Appreciated :D :D :D :D 
 
+#Installation 
 
-Currently Running On (http://leethere.me)
+>npm install
+>node server.js
