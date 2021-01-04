@@ -1,7 +1,7 @@
 # JioSaavanPlayer
 Node-JS (Websockets) + Vue-Js 
 
-##Currently Running On (http://leethere.me)
+<h3>Currently Running On (http://leethere.me)</h3>
 
 
 This WebApp is instantly fast and uses websockets for communications:
@@ -18,4 +18,5 @@ A Star Would Be Appreciated :D :D :D :D
 #Installation 
 
 >npm install
+
 >node server.js
