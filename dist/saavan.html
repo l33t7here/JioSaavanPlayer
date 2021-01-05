@@ -144,7 +144,7 @@
                 }
               })
             socket.on('message', (r)=>{
-                vm.tracks.push({"name":r['song'], "artist":r['singers'],"cover":r['thumbnail'],"source":r['url'],"url":"https://www.google.com","favorited":false})
+                vm.tracks.push({"name":r['song'], "artist":r['singers'],"cover":r['thumbnail'],"source":r['url'],"url":"http://github.com/l33t7here/JioSaavanPlayer/","favorited":false})
                 indexsong = indexsong + 1;
                  if(needtoplay){
                    vm.nextTrack()
