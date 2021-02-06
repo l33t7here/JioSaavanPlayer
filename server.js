@@ -4,6 +4,7 @@ const app = express()
 var http = require('http');
 var path    = require("path");
 var server = http.createServer(app);
+var CryptoJS = require("crypto-js");
 var io = require('socket.io')(server);
 var port = process.env.PORT || 3009;
 app.use(express.static('dist'));
@@ -25,11 +26,27 @@ async function singleidurl(id){
     let resdata = await response.json()
     return helper(resdata[id])
 }
-function helper(data){
+function decryptByDES(ciphertext) {
+  var key = '38346591';
+  var keyHex = CryptoJS.enc.Utf8.parse(key);
+  // direct decrypt ciphertext
+  var decrypted = CryptoJS.DES.decrypt({
+      ciphertext: CryptoJS.enc.Base64.parse(ciphertext)
+  }, keyHex, {
+      mode: CryptoJS.mode.ECB,
+      padding: CryptoJS.pad.Pkcs7
+  });
 
-    try {
-        var url = data['media_preview_url'];
-        url = url.replace('preview', 'aac');
+  return decrypted.toString(CryptoJS.enc.Utf8);
+}
+function helper(data){
+        if('media_preview_url' in data){
+           var url = data['media_preview_url'];
+           url = url.replace('preview', 'aac');
+        }
+        else{
+            var url = decryptByDES(data['encrypted_media_url'])
+        }
         if(data['320kbps'] == 'true'){
             url = url.replace("_96_p.mp4", "_320.mp4")
         }
@@ -38,9 +55,6 @@ function helper(data){
         }
         var dict = { 'song': data['song'], 'singers': data['singers'],'thumbnail':data['image'] ,'url': url}
         return dict
-    } catch (error) {
-        return "Song Not Url Found"
-    }
 }
 app.get('/', (req,res)=>{
     res.sendFile(path.join(__dirname+'/dist/saavan.html'))
